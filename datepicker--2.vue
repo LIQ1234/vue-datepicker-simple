@@ -12,7 +12,7 @@
 			<table class="vue-datepicker-tb">
 				<thead>
 					<tr>
-						<th v-for="d in langConf.week">{{ d }}</th>
+						<th v-for="d in langConf.week" :key="d">{{ d }}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -32,9 +32,11 @@
 				<a class="vue-datepicker-next" @click="nextYear"> &gt; </a>
 			</div>
 			<table class="vue-datepicker-tb2">
-				<col width="33%" />
-				<col width="33%" />
-				<col width="33%" />
+				<colgroup>
+					<col width="33%" />
+					<col width="33%" />
+					<col width="33%" />
+				</colgroup>
 				<tbody>
 					<tr v-for="(season, sIndex) in monthArr" :key="sIndex">
 						<td v-for="(m, mIndex) in season" :key="mIndex" @click="choiceMonth(m.id)" :class="classMonth(m.id)">
